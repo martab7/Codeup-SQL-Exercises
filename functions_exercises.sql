@@ -21,3 +21,9 @@ SELECT * from employees where last_name like ('E%') or last_name like ('%e') ord
 SELECT first_name, last_name from employees where gender = 'M' and (first_name = 'Irena' or first_name = 'Vidya' or first_name = 'Maya') ORDER BY last_name desc, first_name desc;
 SELECT * from employees where last_name like ('E%') or last_name like ('%e') order by emp_no desc;
 SELECT * from employees where hire_date like '199%' and birth_date like '%-12-25' order by birth_date asc, hire_date desc;
+
+-- functions exercises
+SELECT Count(gender), gender from employees where gender in ('M', 'F') and (first_name = 'Irena' or first_name = 'Vidya' or first_name = 'Maya') group BY gender;
+SELECT CONCAT(first_name, ' ', last_name) from employees where last_name like ('E%') or last_name like ('%e') order by emp_no;
+SELECT datediff(curdate(), hire_date) from employees where hire_date like '199%' and birth_date like '%-12-25' order by birth_date asc, hire_date desc;
+SELECT count(distinct first_name, last_name) from employees where last_name like '%q%' and last_name not like '%qu%' group by last_name;
